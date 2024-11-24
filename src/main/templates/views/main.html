@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block 'body' %}
+<div class="d-flex h-100 text-center text-white index" style="position: relative; font-family: 'Poppins', sans-serif;">
+    <video autoplay muted loop id="myVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="{% static 'videos/bg.mp4' %}" type="video/mp4">
+        <!-- Credit: https://www.pexels.com/@kelly-l-1179532 (Pexels.com)-->
+    </video>
+
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column main-content" 
+        style="position: relative; width: 100%; max-width: 1600px; padding: 20px; text-align: center; z-index: 1; border-radius: 10px;">
+        
+        <header class="mb-auto" style="margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin: 0; font-weight: bold; color: #fff; font-size: 36px; letter-spacing: 1px;">AutoMax</h3>
+                <nav class="nav nav-masthead justify-content-center" style="display: flex; gap: 20px; font-size: 18px; letter-spacing: 1px;">
+                    <a class="nav-link active" aria-current="page" href="" style="text-decoration: none; color: #fff; font-weight: bold; text-transform: uppercase; transition: color 0.3s;">Home</a>
+                    <a class="nav-link" href="" style="text-decoration: none; color: #ddd; transition: color 0.3s;">Login</a>
+                </nav>
+            </div>
+        </header>
+        
+        <main class="px-3" style="padding: 20px;">
+            <h2 style="font-size: 40px; font-weight: bold; margin-bottom: 20px; color: #fff; letter-spacing: 1px;">Find a deal near you!</h2>
+            <p class="lead" style="font-size: 20px; color: #ddd; line-height: 1.6; margin-bottom: 30px;">
+                Looking to buy or sell a used car? We've got you covered. <br> 
+                AutoMax is the leading used car marketplace.
+            </p>
+            <p class="lead">
+                <a href="" class="btn btn-lg btn-secondary fw-bold border-white bg-white" 
+                    style="padding: 15px 25px; font-size: 18px; color: #121212; text-transform: uppercase; text-decoration: none; font-weight: bold; border-radius: 50px; border: 2px solid white; transition: background-color 0.3s, color 0.3s;">
+                    Register
+                </a>
+            </p>
+        </main>
+
+        <footer class="mt-auto text-white-50" style="margin-top: 30px; font-size: 14px; color: #aaa; text-align: center;">
+            <p>Copyright © {% now 'Y' %} <a href="" class="text-white" style="text-decoration: none; color: #fff;">AutoMax</a></p>
+        </footer>
+    </div>
+</div>
+{% endblock %}
+
+{% block 'footer'%}
+{% endblock %}
