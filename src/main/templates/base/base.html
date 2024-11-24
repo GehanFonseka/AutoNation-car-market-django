@@ -9,9 +9,17 @@
     <meta name="description" content="">
     <meta name="author" content="Gehan Fonseka, Preneure">
 
+    {% block 'title' %}
+    <title>AutoMax</title>
+    {% endblock %}
+
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom Style CSS -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 
     
 </head>
@@ -20,8 +28,14 @@
 
 
 <body>
+    {%if messages %}
+    {% for messages in messages %}
+    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
     {% block 'body' %}
-
     {% endblock %}
 </body>
 

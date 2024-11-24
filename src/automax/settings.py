@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
+from django.contrib.messages import constants as messages
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,8 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'localflavor',
+    
     'main',  
     'users',
+
 ]
 
 MIDDLEWARE = [
@@ -103,6 +107,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Login Settings
+LOGIN_REDIRECT_URL = '/home/'
+LOGIN_URL = '/login/'
+
+#Messages Settings
+MESSAGE_TAGS = {
+    messages.ERROR
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -125,6 +137,9 @@ STATIC_URL = 'static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Django Crispy Form Settings
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
