@@ -95,6 +95,50 @@ body.index {
 }
 
 
+/* Custom styling for the form inputs */
+/* Make the selector more specific by including the parent element */
+form .form-control {
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.form-control:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 5px rgba(255, 77, 77, 0.3);
+}
+
+/* Styling for submit button */
+.btn-danger {
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #ff4d4d;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #ff3333;
+}
+
+/* Styling for links */
+.text-muted a {
+    text-decoration: none;
+}
+
+.text-primary a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
 .form-signin {
     width: 100%;
     max-width: 330px;
