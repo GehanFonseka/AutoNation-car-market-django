@@ -1,6 +1,10 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
+{% block 'header' %}
+<!-- Intentionally left empty to remove the header -->
+{% endblock %}
+
 {% block 'body' %}
 <div class="d-flex h-100 text-center text-white index" style="position: relative; font-family: 'Poppins', sans-serif;">
     <video autoplay muted loop id="myVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">

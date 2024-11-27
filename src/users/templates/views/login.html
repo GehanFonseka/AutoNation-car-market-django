@@ -1,10 +1,16 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+
 {% block 'body' %}
 <!-- Main Login Form Section -->
-<div class="d-flex justify-content-center align-items-center min-vh-100" style="background: linear-gradient(135deg, #f3f4f6, #e2e8f0); font-family: 'Roboto', sans-serif;">
-    <div class="card shadow-lg border-0" style="max-width: 400px; width: 100%; border-radius: 15px; background-color: #fff; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);">
+<div class="d-flex justify-content-center align-items-center min-vh-100" 
+     style="background: linear-gradient(135deg, #f3f4f6, #e2e8f0); font-family: 'Roboto', sans-serif;">
+
+    <!-- Apply a negative margin-top to shift the card up -->
+    <div class="card shadow-lg border-0" 
+         style="max-width: 400px; width: 100%; border-radius: 15px; background-color: #fff; 
+                box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); margin-top: -50px;">
 
         <!-- Logo -->
         <div class="text-center py-4">
@@ -19,12 +25,22 @@
             {{ login_form|crispy }}
 
             <!-- Submit Button with btn-danger class -->
-            <button type="submit" class="w-100 btn btn-danger btn-lg" style=" border: none; border-radius: 25px; font-size: 18px; transition: 0.3s;">Sign In</button>
+            <button type="submit" class="w-100 btn btn-danger btn-lg" 
+                    style="border: none; border-radius: 25px; font-size: 18px; transition: 0.3s;">
+                Sign In
+            </button>
 
             <!-- Footer/Additional Links -->
             <div class="mt-3 text-center">
-                <p class="mb-0"><a href="#" class="text-muted" style="color: #007bff; text-decoration: none; transition: 0.3s;">Forgot Password?</a></p>
-                <p class="mt-3 mb-0 text-muted" style="color: #6c757d;">Don't have an account? <a href="" class="text-primary" style="color: #0056b3; text-decoration: none;">Sign Up</a></p>
+                <p class="mb-0">
+                    <a href="" class="text-muted" style="color: #007bff; text-decoration: none; transition: 0.3s;">
+                        Forgot Password?
+                    </a>
+                </p>
+                <p class="mt-3 mb-0 text-muted" style="color: #6c757d;">
+                    Don't have an account? 
+                    <a href="" class="text-primary" style="color: #0056b3; text-decoration: none;">Sign Up</a>
+                </p>
             </div>
         </form>
     </div>
