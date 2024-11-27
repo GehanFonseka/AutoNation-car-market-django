@@ -18,13 +18,16 @@
                     AutoMax
                 </h3>
                 <nav class="nav nav-masthead justify-content-center" style="display: flex; gap: 20px; font-size: 18px; letter-spacing: 1px;">
-                    <a class="nav-link active" aria-current="page" href="" 
+                    {% if request.user.is_authenticated %}
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}" 
                        style="text-decoration: none; color: #fff; font-weight: bold; text-transform: uppercase; transition: color 0.3s; 
                               text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);">Home</a>
-                    <a class="nav-link" href="login" 
+                              {% else %}
+                    <a class="nav-link" href="{% url 'login' %}" 
                        style="text-decoration: none; color: #ddd; transition: color 0.3s; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);">
                         Login
                     </a>
+                    {% endif %}
                 </nav>
             </div>
         </header>
@@ -38,7 +41,7 @@
                 AutoMax is the leading used car marketplace.
             </p>
             <p class="lead">
-                <a href="" class="btn btn-lg btn-secondary fw-bold border-white bg-white" 
+                <a href="{% url 'register' %}" class="btn btn-lg btn-secondary fw-bold border-white bg-white" 
                    style="padding: 15px 25px; font-size: 18px; color: #121212; text-transform: uppercase; text-decoration: none; font-weight: bold; 
                           border-radius: 8px; border: 2px solid white; background-color: white; transition: background-color 0.3s, color 0.3s, transform 0.2s; 
                           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">

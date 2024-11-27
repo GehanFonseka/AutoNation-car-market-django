@@ -1,43 +1,30 @@
 {% extends 'base/base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block 'body' %}
 <!-- Main Login Form Section -->
-<div class="d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card shadow-lg border-0" style="max-width: 400px; width: 100%;">
+<div class="d-flex justify-content-center align-items-center min-vh-100" style="background: linear-gradient(135deg, #f3f4f6, #e2e8f0); font-family: 'Roboto', sans-serif;">
+    <div class="card shadow-lg border-0" style="max-width: 400px; width: 100%; border-radius: 15px; background-color: #fff; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);">
 
         <!-- Logo -->
         <div class="text-center py-4">
             <img class="mb-3" src="{% static 'images/logo.png' %}" alt="AutoMax Logo" width="100" height="100">
-            <h4 class="fw-bold">Welcome Back to AutoMax</h4>
-            <p class="text-muted">Please sign in to continue</p>
+            <h4 class="fw-bold" style="color: #222; font-weight: 700;">Welcome Back to AutoMax</h4>
+            <p class="text-muted" style="color: #6c757d;">Please sign in to continue</p>
         </div>
 
-
-          
         <!-- Form -->
-        <form action="{% url 'login' %}" method="post" class="p-4">
+        <form action="" method="post" style="padding: 20px;">
             {% csrf_token %}
- 
-            <!-- Username Field -->
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" required>
-            </div>
-
-            <!-- Password Field -->
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
-            </div>
+            {{ login_form|crispy }}
 
             <!-- Submit Button with btn-danger class -->
-            <button type="submit" class="w-100 btn btn-danger btn-lg">Sign In</button>
+            <button type="submit" class="w-100 btn btn-danger btn-lg" style=" border: none; border-radius: 25px; font-size: 18px; transition: 0.3s;">Sign In</button>
 
             <!-- Footer/Additional Links -->
             <div class="mt-3 text-center">
-                <p class="mb-0"><a href="#" class="text-muted">Forgot Password?</a></p>
-                <p class="mt-3 mb-0 text-muted">Don't have an account? <a href="#" class="text-primary">Sign Up</a></p>
+                <p class="mb-0"><a href="#" class="text-muted" style="color: #007bff; text-decoration: none; transition: 0.3s;">Forgot Password?</a></p>
+                <p class="mt-3 mb-0 text-muted" style="color: #6c757d;">Don't have an account? <a href="" class="text-primary" style="color: #0056b3; text-decoration: none;">Sign Up</a></p>
             </div>
         </form>
     </div>

@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'localflavor',
     "crispy_forms",
-    "crispy_bootstrap5",
+    'crispy_tailwind',
     'main',  
     'users',
 
@@ -115,9 +115,14 @@ LOGIN_REDIRECT_URL = '/home/'
 LOGIN_URL = '/login/'
 
 #Messages Settings
-MESSAGE_TAGS = {
-    messages.ERROR
+MESSAGE_LEVEL_TAGS = {
+    10: 'debug',
+    20: 'info',
+    25: 'success',
+    30: 'warning',
+    40: 'error',
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -143,8 +148,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Django Crispy Form Settings
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 
 
