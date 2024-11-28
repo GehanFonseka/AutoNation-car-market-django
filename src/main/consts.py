@@ -1,3 +1,6 @@
+
+
+
 CARS_BRANDS = (
     ('bmw', 'BMW'),
     ('mercedes benz', 'Mercedes Benz'),
@@ -21,3 +24,5 @@ TRANSMISSION_OPTIONS = (
     ('automatic', 'Automatic'),
     ('manual', 'Manual'),
 )
+
+

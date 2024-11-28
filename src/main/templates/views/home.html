@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 
 {% block 'title' %}
 <title>AutoMax . Home</title>
@@ -10,12 +10,57 @@
 <main>
     <section class="py-5 container">
         <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
+            <!-- Header Section -->
+            <div class="col-lg-6 col-md-8 mx-auto text-center">
                 <h1 class="fw-light">AutoMax</h1>
-                <p class="lead text-muted">The best place to buy or sell modern enthusiast cars, and we’ve
-                    made it that much easier.</p>
-               
+                <p class="lead text-muted">The best place to buy or sell modern enthusiast cars, and we’ve made it that much easier.</p>
+                <a href="{% url 'list' %}" class="btn btn-primary my-2">List Your Car</a>
+            </div>
+    
+            <!-- Form Section -->
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <form method="get">
+                    <!-- Transmission -->
+                    <div class="mb-4">
+                        <label for="transmission" class="form-label" style="font-weight: 600; color: #333;">Transmission</label>
+                        {{ listing_filter.form.transmission }}
+                    </div>
+    
+                    <!-- Brand -->
+                    <div class="mb-4">
+                        <label for="brand" class="form-label" style="font-weight: 600; color: #333;">Brand</label>
+                        {{ listing_filter.form.brand }}
+                    </div>
+    
+                    <!-- Model -->
+                    <div class="mb-4">
+                        <label for="model" class="form-label" style="font-weight: 600; color: #333;">Model</label>
+                        {{ listing_filter.form.model }}
+                    </div>
+    
+                    <!-- Mileage -->
+                    <div class="mb-4">
+                        <label for="mileage" class="form-label" style="font-weight: 600; color: #333;">Mileage (Less Than)</label>
+                        {{ listing_filter.form.mileage }}
+                    </div>
+    
+                    <!-- Submit Button -->
+                    <button class="btn btn-sm btn-danger w-100" type="submit">Submit</button>
+                </form>
+            </div>
         </div>
-    </div>  
+    </section>
+    
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for listing in listing_filter.qs %}
+                <div class="col">
+                    {% include "components/listing_card.html" %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </main>
 {% endblock %}

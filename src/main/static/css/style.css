@@ -20,7 +20,7 @@
 html,
 body {
     height: 104%;
-    overflow: hidden;
+    overflow: auto;
     
 }
 

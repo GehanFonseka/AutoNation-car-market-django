@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'localflavor',
     "crispy_forms",
     'crispy_tailwind',
+    'django_filters',
+    'widget_tweaks',
     'main',  
     'users',
 
@@ -143,7 +145,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Media Files(Uploaded Files) 
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
