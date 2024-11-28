@@ -3,64 +3,77 @@
 {% load crispy_forms_tags %}
 
 {% block 'title' %}
-<title>AutoMax . Home</title>
+<title>AutoNation</title>
 {% endblock %}
 
 {% block 'body' %}
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
 <main>
     <section class="py-5 container">
-        <div class="row py-lg-5">
+        <div class="row py-lg-5" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
             <!-- Header Section -->
-            <div class="col-lg-6 col-md-8 mx-auto text-center">
-                <h1 class="fw-light">AutoMax</h1>
-                <p class="lead text-muted">The best place to buy or sell modern enthusiast cars, and we’ve made it that much easier.</p>
-                <a href="{% url 'list' %}" class="btn btn-primary my-2">List Your Car</a>
+            <div class="col-lg-6 col-md-6 mx-auto text-center" style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); min-height: 350px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                <h1 style="font-size: 2.5rem; font-weight: 700; color: #333; margin-bottom: 15px;">AutoNation</h1>
+                <p style="font-size: 1.1rem; color: #666; line-height: 1.8;">The best place to buy or sell modern enthusiast cars, and we’ve made it that much easier.</p>
+                <a href="{% url 'list' %}" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; margin-top: 15px;">List Your Car</a>
             </div>
     
             <!-- Form Section -->
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <form method="get">
-                    <!-- Transmission -->
-                    <div class="mb-4">
-                        <label for="transmission" class="form-label" style="font-weight: 600; color: #333;">Transmission</label>
-                        {{ listing_filter.form.transmission }}
-                    </div>
+            <div class="col-lg-6 col-md-6 mx-auto" style="margin-top: 0px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                <form method="get" style="padding: 20px; border-radius: 10px; background-color: #f8f9fa; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); min-height: 350px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <h4 style="text-align: center; font-weight: 700; color: #333; margin-bottom: 20px;">Filter Your Search</h4>
+    
+                    
     
                     <!-- Brand -->
-                    <div class="mb-4">
-                        <label for="brand" class="form-label" style="font-weight: 600; color: #333;">Brand</label>
-                        {{ listing_filter.form.brand }}
+                    <div class="row align-items-center mb-3" style="display: flex; align-items: center;">
+                        <label for="brand" class="col-4 form-label" style="font-weight: 600; color: #333;">Brand</label>
+                        <div class="col-8">
+                            {{ listing_filter.form.brand }}
+                        </div>
                     </div>
-    
-                    <!-- Model -->
-                    <div class="mb-4">
-                        <label for="model" class="form-label" style="font-weight: 600; color: #333;">Model</label>
-                        {{ listing_filter.form.model }}
+
+                    <!-- Transmission -->
+                    <div class="row align-items-center mb-3" style="display: flex; align-items: center;">
+                        <label for="transmission" class="col-4 form-label" style="font-weight: 600; color: #333;">Transmission</label>
+                        <div class="col-8">
+                            {{ listing_filter.form.transmission }}
+                        </div>
                     </div>
     
                     <!-- Mileage -->
-                    <div class="mb-4">
-                        <label for="mileage" class="form-label" style="font-weight: 600; color: #333;">Mileage (Less Than)</label>
-                        {{ listing_filter.form.mileage }}
+                    <div class="row align-items-center mb-3" style="display: flex; align-items: center;">
+                        <label for="mileage" class="col-4 form-label" style="font-weight: 600; color: #333;">Mileage (Less Than)</label>
+                        <div class="col-8">
+                            <input type="number" class="form-control" id="mileage" name="mileage" placeholder="Enter mileage" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                            {{ listing_filter.form.mileage }}
+                        </div>
                     </div>
     
                     <!-- Submit Button -->
-                    <button class="btn btn-sm btn-danger w-100" type="submit">Submit</button>
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn btn-danger w-100 mt-3" type="submit" style="padding: 10px; background-color: #dc3545; color: #fff; font-weight: 600; border: none; border-radius: 5px;">Submit</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
-    </section>
-    
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                {% for listing in listing_filter.qs %}
-                <div class="col">
-                    {% include "components/listing_card.html" %}
+
+        <!-- Listings Section -->
+        <div class="album py-5 bg-light" style="margin-top: 10px;">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {% for listing in listing_filter.qs %}
+                    <div class="col" style="padding: 10px; display: flex; flex-direction: column; height: 100%; align-items: stretch;">
+                        {% include "components/listing_card.html" %}
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
-    </div>
+    </section>
 </main>
 {% endblock %}

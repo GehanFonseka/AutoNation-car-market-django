@@ -26,8 +26,8 @@ class ProfileForm(forms.ModelForm):
 class LocationForm(forms.ModelForm):
 
     address_1 = forms.CharField(required=True)
-    zip_code = USZipCodeField(required=True)
+    
 
     class Meta:
         model = Location
-        fields = {'address_1', 'address_2', 'city', 'state', 'zip_code'}
+        fields = {'address_1', 'address_2', 'city', 'state'}

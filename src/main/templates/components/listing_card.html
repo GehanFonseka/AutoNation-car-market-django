@@ -1,37 +1,35 @@
-<div class="card shadow-sm">
-    <img class="bd-placeholder-img card-img-top" width="100%" src="{{listing.image.url}}" role="img"
-        aria-label="Placeholder: Thumbnail" focusable="false">
-    <div class="card-body">
-        <h4 class="card-text">{{listing.model}}</h4>
-        <div class="row justify-content-start align-items-center">
-            <<div class="col-1">
+<div class="card shadow-sm" style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); background-color: #fff; font-family: 'Roboto', sans-serif; height: 100%;">
+    <img class="bd-placeholder-img card-img-top" width="100%" src="{{listing.image.url}}" role="img" aria-label="Thumbnail" focusable="false" style="object-fit: cover; border-bottom: 1px solid #ddd;">
+
+    <div class="card-body d-flex flex-column" style="padding: 20px; color: #333; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+        <h4 class="card-text" style="font-weight: 600; font-size: 1.1rem; color: #333; margin-bottom: 15px;">{{listing.model}}</h4>
+
+        <div class="row justify-content-start align-items-center" style="margin-bottom: 10px;">
+            <div class="col-1">
                 {% if listing.seller.photo %}
                     <img src="{{listing.seller.photo.url}}" class="rounded-circle" height="30" width="30" style="object-fit: cover;">
                 {% else %}
-                    <!-- Provide a default photo if no photo is uploaded -->
                     <img src="path/to/default/photo.jpg" class="rounded-circle" height="30" width="30" style="object-fit: cover;">
                 {% endif %}
             </div>
-            
             <div class="col-4">
-                <p class="card-text">{{listing.seller.user.username}}</p>
+                <p class="card-text" style="font-size: 1rem; font-weight: 500; color: #555; margin-left: 10px;">{{listing.seller.user.username}}</p>
             </div>
         </div>
-        <br>
-        <p class="card-text">{{listing.description}}</p>
-        <div class="d-flex justify-content-between align-items-center">
+
+        <p class="card-text" style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-top: 15px; flex-grow: 1;">{{listing.description}}</p>
+
+        <div class="d-flex justify-content-between align-items-center" style="margin-top: 10px;">
             <div class="btn-group">
-                <a type="button"
-                    class="btn btn-sm btn-outline-secondary">View</a>
+                <a type="button" class="btn btn-sm btn-outline-primary" style="border-color: #007bff; font-size: 0.9rem;">View</a>
                 {% if listing.seller.user == request.user %}
-                <a href="" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                <a href="" type="button" class="btn btn-sm btn-outline-primary" style="border-color: #007bff; font-size: 0.9rem;">Edit</a>
                 {% endif %}
             </div>
-            <small class="text-muted">{{listing.updated_at}}</small>
-            <button type="button" value="like" class="btn btn-secondary">
+            <small class="text-muted" style="color: #888; font-size: 0.8rem;">{{listing.updated_at}}</small>
+            <button type="button" value="like" class="btn btn-primary btn-sm" style="background-color: #007bff; color: #fff; font-size: 1rem; padding: 5px 10px; border-radius: 5px; border: none;">
                 :)
             </button>
         </div>
     </div>
 </div>
-

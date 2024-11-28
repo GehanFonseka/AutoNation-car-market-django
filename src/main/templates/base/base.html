@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<lang="en" class="h-100">
+<html lang="en" class="h-100">
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <meta name="author" content="Gehan Fonseka, Preneure">
 
     {% block 'title' %}
-    <title>AutoMax</title>
+    <title>AutoNation</title>
     {% endblock %}
 
     <!-- Bootstrap core CSS -->
@@ -19,65 +19,58 @@
     <!-- Custom Style CSS -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-
-    
-
-
-    
 </head>
 
+<body style="font-family: 'Roboto', sans-serif; background-color: #f8f9fa; color: #333;">
 
-
-
-<body>
     {% if messages %}
     {% for message in messages %}
-    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %} style="margin: 10px auto; padding: 10px 20px; font-size: 1rem;">
         {{ message }}
     </div>
     {% endfor %}
     {% endif %}
 
     {% block 'header' %}
-    <header class="p-3 bg-dark text-white w-100 nav-masthead">
+    <header style="background-color: #343a40; color: white; padding: 20px 0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
         <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="{% url 'home' %}"
-                    class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <img class="bi me-2" width="32" height="32" src="{% static 'images/logo.png' %}"
-                        aria-label="Bootstrap">
-                </a>
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- Left Side: Logo and Brand Name -->
+                <div class="d-flex align-items-center">
+                    <a href="{% url 'home' %}" class="d-flex align-items-center text-white text-decoration-none">
+                        <img src="{% static 'images/logo.png' %}" width="40" height="40" alt="AutoNation Logo" style="margin-right: 10px;">
+                        <h4 style="margin: 0;">AutoNation</h4>
+                    </a>
+                </div>
+
+                <!-- Right Side: Profile and Logout -->
                 {% if request.user.is_authenticated %}
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li>
-                        <a href="" class="nav-link px-2">Profile</a>
-                    </li>
-                </ul>
-                <div class="text-end">
-                    <a type="button" href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                <div class="d-flex align-items-center">
+                    <a href="#" class="nav-link text-white" style="font-weight: 500; margin-right: 20px;">Profile</a>
+                    <a href="{% url 'logout' %}" class="btn btn-danger" style="font-size: 1rem; padding: 8px 16px; border-radius: 5px;">Logout</a>
                 </div>
                 {% endif %}
             </div>
         </div>
-</header>
+    </header>
     {% endblock %}
+
     {% block 'body' %}
+    <!-- Body Content Goes Here -->
     {% endblock %}
+
+    {% block 'footer' %}
+    <footer style="background-color: #343a40; color: #f8f9fa; padding: 30px 0;">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <p style="margin: 0;">Powered by <a href="https://www.djangoproject.com/" style="color: #007bff;">Django</a></p>
+                <p style="margin: 0;">AutoNation - Best Place To Buy & Sell Cars</p>
+            </div>
+            <p style="margin: 0; text-align: center;">© Copyright {% now 'Y' %} <a href="#" style="color: #007bff;">AutoNation</a></p>
+        </div>
+    </footer>
+    {% endblock %}
+
 </body>
 
-{% block 'footer'%}
-<footer class="footer text-muted bg-dark py-5">
-    <div class="container">
-        <p class="float-end mb-1">Powered by <a href="https://www.djangoproject.com/">Django</a></p>
-        </p>
-        <p class="mb-1">AutoMax - Best Place To Buy & Sell Cars</p>
-        <p class="mb-0">© Copyright {% now 'Y' %} <a href="">AutoMax</a></p>
-    </div>
-</footer>
-{% endblock %}
-
 </html>
-    
-
-
