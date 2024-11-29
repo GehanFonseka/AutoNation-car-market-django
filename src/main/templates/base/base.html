@@ -46,7 +46,7 @@
                 <!-- Right Side: Profile and Logout -->
                 {% if request.user.is_authenticated %}
                 <div class="d-flex align-items-center">
-                    <a href="#" class="nav-link text-white" style="font-weight: 500; margin-right: 20px;">Profile</a>
+                    <a href="{% url 'profile' %}" class="nav-link text-white" style="font-weight: 500; margin-right: 20px;">Profile</a>
                     <a href="{% url 'logout' %}" class="btn btn-danger" style="font-size: 1rem; padding: 8px 16px; border-radius: 5px;">Logout</a>
                 </div>
                 {% endif %}

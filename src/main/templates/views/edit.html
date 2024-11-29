@@ -1,0 +1,83 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block 'body' %}
+<div class="container-fluid text-center py-5" style="background-color: #f4f4f9;">
+    <div class="container px-4 py-5" style="background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+        <div class="row g-4">
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h2 class="mb-3 border-bottom" style="color: black; font-size: 2rem; font-weight: bold;">Edit Listing</h2>
+                </div>
+            </div>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data" style="padding: 2rem;">
+            {% csrf_token %}
+            <div class="row" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                <!-- Listing Form Fields -->
+                <div class="col-6" style="padding-right: 2rem; display: flex; flex-direction: column; gap: 20px;">
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_brand" class="form-label" style="font-weight: bold; color: #333;">Brand</label>
+                        {{ listing_form.brand }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_model" class="form-label" style="font-weight: bold; color: #333;">Model</label>
+                        {{ listing_form.model }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_vin" class="form-label" style="font-weight: bold; color: #333;">VIN</label>
+                        {{ listing_form.vin }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_mileage" class="form-label" style="font-weight: bold; color: #333;">Mileage</label>
+                        {{ listing_form.mileage }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_color" class="form-label" style="font-weight: bold; color: #333;">Color</label>
+                        {{ listing_form.color }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_description" class="form-label" style="font-weight: bold; color: #333;">Description</label>
+                        {{ listing_form.description }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_engine" class="form-label" style="font-weight: bold; color: #333;">Engine</label>
+                        {{ listing_form.engine }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_transmission" class="form-label" style="font-weight: bold; color: #333;">Transmission</label>
+                        {{ listing_form.transmission }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_image" class="form-label" style="font-weight: bold; color: #333;">Image</label>
+                        {{ listing_form.image }}
+                    </div>
+                </div>
+
+                <!-- Location Form Fields -->
+                <div class="col-6" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_address_1" class="form-label" style="font-weight: bold; color: #333;">Address Line 1</label>
+                        {{ location_form.address_1 }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_address_2" class="form-label" style="font-weight: bold; color: #333;">Address Line 2</label>
+                        {{ location_form.address_2 }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_city" class="form-label" style="font-weight: bold; color: #333;">City</label>
+                        {{ location_form.city }}
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+                        <label for="id_state" class="form-label" style="font-weight: bold; color: #333;">State</label>
+                        {{ location_form.state }}
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-lg" type="submit" style="background-color: #e74c3c; color: white; padding: 1rem 2rem; font-size: 1.25rem; border-radius: 5px; border: none;">
+                Save
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

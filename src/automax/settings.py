@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'localflavor',
-    "crispy_forms",
+    'crispy_forms',
     'crispy_tailwind',
     'django_filters',
     'widget_tweaks',
