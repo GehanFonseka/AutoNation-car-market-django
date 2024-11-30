@@ -2,7 +2,7 @@ from dataclasses import field
 from django import forms
 from django.contrib.auth.models import User
 from localflavor.us.forms import USZipCodeField
-
+from .widgets import CustomPictureImageFieldWidget
 from .models import Location, Profile
 
 
@@ -15,7 +15,7 @@ class UserForm(forms.ModelForm):
 
 
 class ProfileForm(forms.ModelForm):
-   
+    photo = forms.ImageField(widget=CustomPictureImageFieldWidget)
     bio = forms.TextInput()
 
     class Meta:
