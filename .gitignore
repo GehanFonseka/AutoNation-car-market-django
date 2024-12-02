@@ -1,24 +1,24 @@
-# Ignore Python bytecode and cache
-*.pyc
-*.pyo
-__pycache__/
-
-# Ignore virtual environment directories
-env/
-venv/
-
 # Ignore environment files
 src/automax/.env
 
-# Ignore IDE and editor config files
-.vscode/
-.idea/
 
 # Ignore the static folder in the main app
 src/main/static/
 
 # Ignore media files (optional, depending on your use case)
 src/main/media/
+
+
+# Ignore virtual environment directories
+env/
+venv/
+
+
+
+# Ignore IDE and editor config files
+.vscode/
+.idea/
+
 
 # Ignore database files
 *.sqlite3
