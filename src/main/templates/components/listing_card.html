@@ -1,5 +1,5 @@
-<div class="card shadow-sm" style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); background-color: #fff; font-family: 'Roboto', sans-serif; height: 100%;">
-    <img class="bd-placeholder-img card-img-top" width="100%" src="{{listing.image.url}}" role="img" aria-label="Thumbnail" focusable="false" style="object-fit: cover; border-bottom: 1px solid #ddd;">
+<div class="card shadow-sm" style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); background-color: #fff; font-family: 'Roboto', sans-serif; height: 100%; transition: transform 0.3s ease-in-out;">
+    <img class="bd-placeholder-img card-img-top" width="100%" src="{{listing.image.url}}" role="img" aria-label="Thumbnail" focusable="false" style="object-fit: cover; border-bottom: 1px solid #ddd; transition: transform 0.3s ease-in-out;">
 
     <div class="card-body d-flex flex-column" style="padding: 20px; color: #333; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
         <h4 class="card-text" style="font-weight: 600; font-size: 1.1rem; color: #333; margin-bottom: 15px;">{{listing.model}}</h4>
@@ -17,19 +17,66 @@
             </div>
         </div>
 
-        <p class="card-text" style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-top: 15px; flex-grow: 1;">{{listing.description}}</p>
+        <p class="card-text" style="color: #333; font-size: 0.95rem; line-height: 1.6; margin-top: 15px; flex-grow: 1;">{{listing.description}}</p>
 
         <div class="d-flex justify-content-between align-items-center" style="margin-top: 10px;">
             <div class="btn-group">
-                <a href="{% url 'listing' id=listing.id %}" type="button" class="btn btn-sm btn-outline-primary" style="border-color: #007bff; font-size: 0.9rem;">View</a>
+                <a href="{% url 'listing' id=listing.id %}" type="button" class="btn btn-sm btn-outline-primary" style="border-color: #007bff; font-size: 0.9rem; transition: transform 0.2s ease-in-out;">View</a>
                 {% if listing.seller.user == request.user %}
-                <a href="{% url 'edit' id=listing.id %}" type="button" class="btn btn-sm btn-outline-primary" style="border-color: #007bff; font-size: 0.9rem;">Edit</a>
+                <a href="{% url 'edit' id=listing.id %}" type="button" class="btn btn-sm btn-outline-primary" style="border-color: #007bff; font-size: 0.9rem; transition: transform 0.2s ease-in-out;">Edit</a>
                 {% endif %}
             </div>
             <small class="text-muted" style="color: #888; font-size: 0.8rem;">{{listing.updated_at}}</small>
-            <button type="button" value="like" class="btn btn-primary btn-sm" style="background-color: #007bff; color: #fff; font-size: 1rem; padding: 5px 10px; border-radius: 5px; border: none;">
-                :)
+            
+            <!-- Like Button -->
+            <button 
+                id="like_{{listing.id}}" 
+                type="button" 
+                class="btn btn-outline-secondary shadow-sm" 
+                style="
+                    border-radius: 50%; 
+                    width: 40px; 
+                    height: 40px; 
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center; 
+                    overflow: hidden; 
+                    background-color: #fff; 
+                    transition: all 0.3s ease-in-out; 
+                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+                    position: relative;
+                    transform: translateZ(0);
+                "
+                onclick="toggleLike(this, '{{listing.id}}')"
+                onmouseover="this.style.transform='scale(1.1) translateY(-5px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.2)';"
+                onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.1)';"
+                onmousedown="this.style.transform='scale(0.95) translateY(1px)'; this.style.boxShadow='0 1px 4px rgba(0, 0, 0, 0.1)';"
+                onmouseup="this.style.transform='scale(1.05) translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0, 0, 0, 0.15)';"
+            >
+                <svg id="heart_{{listing.id}}" xmlns="http://www.w3.org/2000/svg" width="18" height="18" 
+                    fill="{% if listing.id in liked_listings_ids %}red{% else %}black{% endif %}" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"></path>
+                </svg>
             </button>
         </div>
     </div>
 </div>
+
+<script>
+    $("#like_{{listing.id}}").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "{% url 'like_listing' id=listing.id %}",
+            data: { 'csrfmiddlewaretoken': '{{csrf_token}}' },
+            dataType: "json",
+            success: function (r) {
+                // Update the heart icon color based on the like status returned from the server
+                var heart = $("#like_{{listing.id}}").find("svg");
+                heart.attr("fill", r.is_liked_by_user ? "red" : "black");
+            },
+            error: function (rs, e) {
+                console.error("Error while liking the listing");
+            }
+        });
+    });
+</script>

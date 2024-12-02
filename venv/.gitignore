@@ -1,0 +1,28 @@
+# Ignore Python bytecode and build artifacts
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore virtual environment directories
+env/
+venv/
+
+# Ignore environment files
+.env
+
+# Ignore IDE and editor config files
+.vscode/
+.idea/
+
+# Ignore the statics folder
+/static/
+
+# Ignore log files
+*.log
+
+# Ignore database files (optional, depending on project setup)
+*.sqlite3
+
+# Ignore Django migrations (optional, ignore only if needed)
+*/migrations/*.py
+!*/migrations/__init__.py
