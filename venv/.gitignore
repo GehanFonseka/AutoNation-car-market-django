@@ -1,4 +1,37 @@
-# created by virtualenv automatically
-*
+# Ignore Python bytecode and cache
+*.pyc
+*.pyo
+__pycache__/
 
-.env
+# Ignore virtual environment directories
+env/
+venv/
+
+# Ignore environment files
+src/automax/.env
+
+# Ignore IDE and editor config files
+.vscode/
+.idea/
+
+# Ignore the static folder in the main app
+src/main/static/
+
+# Ignore media files (optional, depending on your use case)
+src/main/media/
+
+# Ignore database files
+*.sqlite3
+
+# Ignore Django migration files (optional)
+src/main/migrations/*.py
+src/!main/migrations/__init__.py
+
+# Ignore build artifacts
+build/
+dist/
+
+# Ignore temporary files
+*.tmp
+*.bak
+.DS_Store
