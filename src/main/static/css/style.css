@@ -1,0 +1,146 @@
+/*
+ * Globals
+ */
+
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+    color: #333;
+    text-shadow: none;
+    /* Prevent inheritance from `body` */
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+    height: 106%;
+    overflow: 1000vh;
+    
+}
+
+body {
+   
+    align-items: center;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+    
+}
+
+.h2, h2 {
+    color: white;
+}
+
+.h3, h3 {
+    color: white;
+}
+
+body.index {
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.cover-container {
+    max-width: 42em;
+
+}
+
+
+/*
+ * Header
+ */
+
+#myVideo {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    min-width: 155%;
+    min-height: 100%;
+}
+
+.main-content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    
+
+
+}
+
+
+/* Custom styling for the form inputs */
+/* Make the selector more specific by including the parent element */
+form .form-control {
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.form-control:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 5px rgba(255, 77, 77, 0.3);
+}
+
+/* Styling for submit button */
+.btn-danger {
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #ff4d4d;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #ff3333;
+}
+
+/* Styling for links */
+.text-muted a {
+    text-decoration: none;
+}
+
+.text-primary a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
