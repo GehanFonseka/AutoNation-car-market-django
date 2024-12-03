@@ -21,4 +21,4 @@ AUTONATION is a cutting-edge platform designed to streamline and enhance the exp
 
 1. Clone the repository:
    ```bash
-   [git clone https://github.com/GehanFonseka/AutoNation-car-market-django.git]
+   git clone https://github.com/GehanFonseka/AutoNation-car-market-django.git
