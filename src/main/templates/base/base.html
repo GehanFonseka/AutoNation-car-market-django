@@ -30,34 +30,36 @@
 
     {% if messages %}
     {% for message in messages %}
-    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %} style="margin: 10px auto; padding: 10px 20px; font-size: 1rem;">
-        {{ message }}
-    </div>
+        <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+            {{ message }}
+        </div>
     {% endfor %}
-    {% endif %}
+{% endif %}
+
 
     {% block 'header' %}
-    <header style="background-color: #343a40; color: white; padding: 20px 0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <header class="header">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="header-content d-flex justify-content-between align-items-center ">
                 <!-- Left Side: Logo and Brand Name -->
-                <div class="d-flex align-items-center">
+                <div class="logo-container d-flex align-items-center">
                     <a href="{% url 'home' %}" class="d-flex align-items-center text-white text-decoration-none">
-                        <img src="{% static 'images/logo.png' %}" width="40" height="40" alt="AutoNation Logo" style="margin-right: 10px;">
-                        <h4 style="margin: 0;">AutoNation</h4>
+                        <img src="{% static 'images/logo.png' %}" width="40" height="40" alt="AutoNation Logo" class="logo">
+                        <h4 class="brand-name">AutoNation</h4>
                     </a>
                 </div>
-
+    
                 <!-- Right Side: Profile and Logout -->
                 {% if request.user.is_authenticated %}
-                <div class="d-flex align-items-center">
-                    <a href="{% url 'profile' %}" class="nav-link text-white" style="font-weight: 500; margin-right: 20px;">Profile</a>
-                    <a href="{% url 'logout' %}" class="btn btn-danger" style="font-size: 1rem; padding: 8px 16px; border-radius: 5px;">Logout</a>
+                <div class="profile-container d-flex align-items-center">
+                    <a href="{% url 'profile' %}" class="nav-link text-white profile-link">Profile</a>
+                    <a href="{% url 'logout' %}" class="btn btn-danger logout-btn">Logout</a>
                 </div>
                 {% endif %}
             </div>
         </div>
     </header>
+    
     {% endblock %}
 
     {% block 'body' %}
@@ -65,15 +67,25 @@
     {% endblock %}
 
     {% block 'footer' %}
-    <footer style="background-color: #343a40; color: #f8f9fa; padding: 30px 0;">
+    <footer class="footer">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <p style="margin: 0;">Powered by <a href="https://www.djangoproject.com/" style="color: #007bff;">Django</a></p>
-                <p style="margin: 0;">AutoNation - Best Place To Buy & Sell Cars</p>
+            <div class="footer-content d-flex justify-content-between align-items-center">
+                <!-- Powered by Django -->
+                <div class="powered-by">
+                    <p>Powered by <a href="https://www.djangoproject.com/" class="footer-link">Django</a></p>
+                </div>
+    
+                <!-- AutoNation Text -->
+                <div class="company-info">
+                    <p>AutoNation - Best Place To Buy & Sell Cars</p>
+                </div>
             </div>
-            <p style="margin: 0; text-align: center;">© Copyright {% now 'Y' %} <a href="#" style="color: #007bff;">AutoNation</a></p>
+            <div class="footer-bottom text-center">
+                <p>© Copyright {% now 'Y' %} <a href="#" class="footer-link">AutoNation</a></p>
+            </div>
         </div>
     </footer>
+    
     {% endblock %}
 
 </body>
