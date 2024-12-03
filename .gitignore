@@ -12,6 +12,12 @@ venv/
 #Media Files
 **/media/
 
+
+#Static Files
+**/static/
+.vscode
+
+
 # Thumbnails
 ._*
 
@@ -90,3 +96,4 @@ local_settings.py
 
 .env
 db.sqlite3
+
