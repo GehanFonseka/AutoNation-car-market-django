@@ -13,9 +13,9 @@ venv/
 **/media/
 
 
-#Static Files
-**/static/
-.vscodecd 
+#Static File
+.vscode
+
 
 
 # Thumbnails
