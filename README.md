@@ -3,20 +3,16 @@
 AUTONATION is a cutting-edge platform designed to streamline and enhance the experience of car buying, selling, and related services. It provides users with an intuitive interface to explore car listings, connect with sellers, and access various automotive services all in one place. Built with Python and Django, the project offers a seamless, user-friendly experience for both buyers and sellers.
 
 
-### Explanation:
-- The images are located in the `preview` folder, so we use `preview/` followed by the image name.
-- Ensure the image name is correctly referenced. Since it contains spaces, replace the spaces with `%20` (this is the URL-encoded space character).
-  - `FireShot Capture 004 - AutoNation - 127.0.0.1.png` becomes `FireShot%20Capture%20004%20-%20AutoNation%20-%20127.0.0.1.png`.
+## Preview
 
-### Step 2: Commit Changes
+### Screenshot 1
+![Screenshot 1](preview/FireShot Capture 003 - AutoNation - 127.0.0.1.png)
 
-1. After editing your `README.md`, save the file.
-2. Commit the changes and push them to your repository:
+### Screenshot 2
+![Screenshot 2](preview/image2.png)
 
-```bash
-git add README.md
-git commit -m "Added preview images to README"
-git push
+### Screenshot 3
+![Screenshot 3](preview/image3.png)
 
 
 ## Features
