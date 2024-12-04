@@ -6,7 +6,7 @@ AUTONATION is a cutting-edge platform designed to streamline and enhance the exp
 ## Preview
 
 ### Screenshot 1
-![Screenshot 1](preview/FireShot Capture 003 - AutoNation - 127.0.0.1.png)
+![Screenshot 1](previews/FireShot Capture 003 - AutoNation - 127.0.0.1.png)
 
 ### Screenshot 2
 ![Screenshot 2](preview/image2.png)
