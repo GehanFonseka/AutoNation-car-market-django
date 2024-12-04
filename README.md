@@ -13,13 +13,17 @@
 ## Platform Interface Overview
 
 Explore the AutoNation platform with the following screenshots showcasing its interface:
+<table align="center">
+  <tr>
+    <td><img src="previews/FireShot%20Capture%20003%20-%20AutoNation%20-%20127.0.0.1.png" alt="Screenshot 1" width="600" height="400"/></td>
+    <td><img src="previews/FireShot%20Capture%20004%20-%20AutoNation%20-%20127.0.0.1.png" alt="Screenshot 2" width="600" height="400"/></td>
+  </tr>
+  <tr>
+    <td><img src="previews/home.png" alt="Screenshot 3" width="600" height="400"/></td>
+    <td><img src="previews/listing.png" alt="Screenshot 4" width="600" height="400"/></td>
+  </tr>
+</table>
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
-  <img src="previews/FireShot%20Capture%20003%20-%20AutoNation%20-%20127.0.0.1.png" alt="Screenshot 1" width="600" height="400"/>
-  <img src="previews/FireShot%20Capture%20004%20-%20AutoNation%20-%20127.0.0.1.png" alt="Screenshot 2" width="600" height="400"/>
-  <img src="previews/home.png" alt="Screenshot 3" width="600" height="400"/>
-  <img src="previews/listing.png" alt="Screenshot 4" width="600" height="400"/>
-</div>
 
 ## Technologies Used
 
