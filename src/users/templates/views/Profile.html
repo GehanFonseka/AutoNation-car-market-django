@@ -7,7 +7,7 @@
         <div class="row g-4">
             <div class="col d-flex align-items-start">
                 <div>
-                    <h2 class="mb-3 border-bottom" style="color: #333; font-size: 2rem; font-weight: bold; text-transform: uppercase;">Profile</h2>
+                    <h2 class="mb-3 border-bottom" style="color: #001645; font-size: 2rem; font-weight: bold; text-transform: uppercase;">Profile</h2>
                 </div>
             </div>
         </div>
@@ -34,9 +34,9 @@
                     </div>
                     
                     <!-- Profile Information Section -->
-                    <div style="margin-bottom: 1.5rem; ">
+                    <div style="margin-bottom: 1.5rem;">
                         <label for="id_photo" class="form-label" style="font-weight: 600; display: block; color: #444;">Profile Photo</label>
-                        {{ profile_form.photo  }}
+                        {{ profile_form.photo }}
                     </div>
                     <div style="margin-bottom: 1.5rem;">
                         <label for="id_bio" class="form-label" style="font-weight: 600; display: block; color: #444;">Bio</label>
@@ -69,7 +69,7 @@
                 </div>
             </div>
             
-            <button type="submit" value="Submit" style="background-color: #e74c3c; color: white; padding: 1rem 2rem; font-size: 1.25rem; border-radius: 5px; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 10px 15px rgba(0, 0, 0, 0.1); cursor: pointer; transition: background-color 0.3s ease;">
+            <button type="submit" value="Submit" style="background-color: #0172B2; color: white; padding: 1rem 2rem; font-size: 1.25rem; border-radius: 5px; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 10px 15px rgba(0, 0, 0, 0.1); cursor: pointer; transition: background-color 0.3s ease;">
                 Save
             </button>
         </form>
@@ -81,7 +81,7 @@
     <div class="row g-4 py-5">
         <div class="col d-flex align-items-start">
             <div>
-                <h2 class="mb-3 border-bottom" style="color: #333; font-size: 2rem; font-weight: bold; text-transform: uppercase;">Your Listings</h2>
+                <h2 class="mb-3 border-bottom" style="color: #001645; font-size: 2rem; font-weight: bold; text-transform: uppercase;">Your Listings</h2>
             </div>
         </div>
     </div>
@@ -108,7 +108,7 @@
     <div class="row g-4 py-5">
         <div class="col d-flex align-items-start">
             <div>
-                <h2 class="mb-3 border-bottom" style="color: #333; font-size: 2rem; font-weight: bold; text-transform: uppercase;">Liked Listings</h2>
+                <h2 class="mb-3 border-bottom" style="color: #001645; font-size: 2rem; font-weight: bold; text-transform: uppercase;">Liked Listings</h2>
             </div>
         </div>
     </div>
@@ -122,7 +122,6 @@
         <tbody>
             {% for liked_listing in user_liked_listings %}
             <tr>
-                
                 <td>{{ liked_listing.listing.model }}</td>
                 <td>{{ liked_listing.like_date }}</td>
             </tr>

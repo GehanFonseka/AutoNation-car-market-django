@@ -6,30 +6,42 @@
 {% endblock %}
 
 {% block 'body' %}
-<div class="d-flex h-100 text-center text-white index overflow-hidden" 
-     style="position: relative; font-family: 'Poppins', sans-serif; height: 100vh; overflow: hidden;">
-    <video autoplay muted loop id="myVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
-        <source src="{% static 'videos/bg.mp4' %}" type="video/mp4">
-        <!-- Credit: https://www.pexels.com/@kelly-l-1179532 (Pexels.com)-->
-    </video>
+<html style="overflow: hidden; height: 100%; font-family: 'Poppins', sans-serif;">
+<body style="overflow: hidden; height: 100%; margin: 0;">
 
+<div class="d-flex h-100 text-center text-white index overflow-hidden" 
+     style="position: relative; height: 100vh; overflow: hidden; font-family: 'Poppins', sans-serif;">
+
+    <!-- Background Image -->
+    <img src="{% static 'images/im2.webp' %}" alt="Background Image" 
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+
+    <!-- Gradient Overlay -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); z-index: 0;"></div>
+
+    <!-- Main Content -->
     <div class="d-flex w-100 h-100 p-3 mx-auto flex-column main-content" 
-        style="position: relative; width: 100%; max-width: 1600px; padding: 20px; text-align: center; z-index: 1; border-radius: 0px; 
-               background: rgba(0, 0, 0, 0.4); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); color: white; overflow: hidden;">
-        
+         style="position: relative; width: 100%; max-width: 1600px; padding: 20px; text-align: center; z-index: 1; color: white;">
+
+        <!-- Header -->
         <header class="mb-auto" style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h3 style="margin: 0; font-weight: bold; color: #fff; font-size: 36px; letter-spacing: 1px; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);">
+                <h3 style="font-weight: bold; color: #fff; font-size: 50px; text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);">
                     AutoNation
                 </h3>
-                <nav class="nav nav-masthead justify-content-center" style="display: flex; gap: 20px; font-size: 18px; letter-spacing: 1px;">
+                <nav class="nav nav-masthead justify-content-center" 
+                     style="display: flex; gap: 20px; font-size: 18px; letter-spacing: 1px;">
                     {% if request.user.is_authenticated %}
                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}" 
-                       style="text-decoration: none; color: #fff; font-weight: bold; text-transform: uppercase; transition: color 0.3s; 
-                              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);">Home</a>
+                       style="text-decoration: none; color: #fff; font-weight: bold; text-transform: uppercase; 
+                              transition: color 0.3s; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);">
+                        Home
+                    </a>
                     {% else %}
                     <a class="nav-link" href="{% url 'login' %}" 
-                       style="text-decoration: none; color: #ddd; transition: color 0.3s; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);">
+                       style="text-decoration: none; color: #FFD700; font-weight: bold; text-transform: uppercase; 
+                              transition: color 0.3s, transform 0.3s; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);">
                         Login
                     </a>
                     {% endif %}
@@ -37,34 +49,44 @@
             </div>
         </header>
         
-        <main class="px-3" style="padding: 20px;">
-            <h2 style="font-size: 40px; font-weight: bold; margin-bottom: 20px; color: #fff; letter-spacing: 1px; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);">
-                Find a deal near you!
+        <!-- Main Section -->
+        <main style="padding: 20px; animation: fadeIn 2s;">
+            <h2 style="font-size: 40px; font-weight: bold; color: #FFFFFF; text-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);">
+                Find Your Perfect Deal Today!
             </h2>
-            <p class="lead" style="font-size: 20px; color: #ddd; line-height: 1.6; margin-bottom: 30px; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);">
-                Looking to buy or sell a used car? We've got you covered. <br> 
-                AutoNation is the leading used car marketplace.
+            <p style="font-size: 20px; color: #F8F8F8; line-height: 1.8; margin-bottom: 40px; text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);">
+                AutoNation brings you the best deals for buying and selling used cars. Discover your dream car or sell yours with ease.
             </p>
-            <p class="lead">
-                <a href="{% url 'register' %}" class="btn btn-lg btn-secondary fw-bold border-white bg-white" 
-                   style="padding: 15px 25px; font-size: 18px; color: #121212; text-transform: uppercase; text-decoration: none; font-weight: bold; 
-                          border-radius: 8px; border: 2px solid white; background-color: white; transition: background-color 0.3s, color 0.3s, transform 0.2s; 
-                          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
-                    Register
-                </a>
-            </p>
+            <a href="{% url 'register' %}" class="btn" 
+               style="padding: 15px 50px; font-size: 20px; font-weight: bold; background: linear-gradient(90deg, #FFD700, #FF4500); 
+                      color: #121212; border: none; border-radius: 10px; text-transform: uppercase; transition: all 0.3s ease; 
+                      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); text-decoration: none;"
+               onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.6)';"
+               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.5)';">
+                Register Now
+            </a>
         </main>
 
-        <footer class="mt-auto text-white-50" 
-                style="margin-top: 30px; font-size: 14px; color: rgba(255, 255, 255, 0.8); text-align: center; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);">
-            <p>Copyright © {% now 'Y' %} <a href="" class="text-white" 
-            style="text-decoration: none; color: rgba(255, 255, 255, 0.9); transition: color 0.3s;">
-                AutoNation
-            </a></p>
+        <!-- Footer -->
+        <footer style="margin-top: 40px; font-size: 14px; color: rgba(255, 255, 255, 0.9);">
+            <p>Copyright © {% now 'Y' %} 
+                <a href="#" style="color: #FFD700; text-decoration: none;">AutoNation</a>. All Rights Reserved.
+            </p>
         </footer>
     </div>
 </div>
+
+<!-- Keyframe Animations -->
+<style>
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+</body>
+</html>
 {% endblock %}
 
-{% block 'footer'%}
+{% block 'footer' %}
 {% endblock %}

@@ -2,20 +2,18 @@
 {% load static %}
 
 {% block 'body' %}
-<div class="container-fluid text-center py-5" style="background-color: #f4f4f9;">
-    <div class="container px-4 py-5" style="background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px;">
-        <div class="row g-4">
-            <div class="col d-flex align-items-start">
-                <div>
-                    <h2 class="mb-3 border-bottom" style="color: black; font-size: 2rem; font-weight: bold;">Edit Listing</h2>
-                </div>
-            </div>
+<div class="container" style="max-width: 70%; margin: 40px auto; padding: 40px; background: linear-gradient(to bottom, #2C3E50, #1ABC9C); border-radius: 12px; box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.15);">
+    <div style="background-color: #ecf0f1; border-radius: 12px; padding: 32px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);">
+        <!-- Title Section -->
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 34px; font-weight: 700; color: #000000; font-family: 'Roboto', sans-serif;">Edit Car Listing</h2>
         </div>
+
         <form action="" method="post" enctype="multipart/form-data" style="padding: 2rem;">
             {% csrf_token %}
             <div class="row" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
                 <!-- Listing Form Fields -->
-                <div class="col-6" style="padding-right: 2rem; display: flex; flex-direction: column; gap: 20px;">
+                <div class="col-12 col-md-6" style="display: flex; flex-direction: column; gap: 20px;">
                     <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
                         <label for="id_brand" class="form-label" style="font-weight: bold; color: #333;">Brand</label>
                         {{ listing_form.brand }}
@@ -55,7 +53,7 @@
                 </div>
 
                 <!-- Location Form Fields -->
-                <div class="col-6" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="col-12 col-md-6" style="display: flex; flex-direction: column; gap: 20px;">
                     <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
                         <label for="id_address_1" class="form-label" style="font-weight: bold; color: #333;">Address Line 1</label>
                         {{ location_form.address_1 }}
@@ -74,9 +72,12 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-lg" type="submit" style="background-color: #e74c3c; color: white; padding: 1rem 2rem; font-size: 1.25rem; border-radius: 5px; border: none;">
-                Save
-            </button>
+
+            <div class="text-center" style="margin-top: 30px;">
+                <button class="btn btn-lg" type="submit" style="background-color: #e74c3c; color: white; padding: 1rem 2rem; font-size: 1.25rem; border-radius: 5px; border: none;">
+                    Save
+                </button>
+            </div>
         </form>
     </div>
 </div>

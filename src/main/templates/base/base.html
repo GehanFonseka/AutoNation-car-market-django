@@ -20,10 +20,97 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <!--JQuery CDN-->
+    <!-- JQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+    <!-- Custom Styles for Header and Footer -->
+    <style>
+        /* Header Style */
+        .header {
+            background: linear-gradient(90deg, #001645, #0172B2);
+            padding: 15px 0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-container .brand-name {
+            font-size: 24px;
+            color: white;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .profile-container a {
+            color: white;
+            margin-left: 15px;
+            font-weight: 500;
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+            color: white;
+            border-radius: 30px;
+            padding: 8px 20px;
+            margin-left: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #FF4500;
+        }
+
+        /* Footer Style */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 30px 0;
+        }
+
+        .footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer .company-info p {
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .footer .powered-by p {
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .footer .footer-link {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .footer .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #bbb;
+        }
+    </style>
 </head>
 
 <body style="font-family: 'Roboto', sans-serif; background-color: #f8f9fa; color: #333;">
@@ -34,17 +121,16 @@
             {{ message }}
         </div>
     {% endfor %}
-{% endif %}
-
+    {% endif %}
 
     {% block 'header' %}
     <header class="header">
         <div class="container">
-            <div class="header-content d-flex justify-content-between align-items-center ">
+            <div class="header-content d-flex justify-content-between align-items-center">
                 <!-- Left Side: Logo and Brand Name -->
-                <div class="logo-container d-flex align-items-center">
+                <div class="logo-container">
                     <a href="{% url 'home' %}" class="d-flex align-items-center text-white text-decoration-none">
-                        <img src="{% static 'images/logo.png' %}" width="40" height="40" alt="AutoNation Logo" class="logo">
+                        <img src="{% static 'images/logo.png' %}" width="50" height="50" alt="AutoNation Logo" class="logo">
                         <h4 class="brand-name">AutoNation</h4>
                     </a>
                 </div>
@@ -59,7 +145,6 @@
             </div>
         </div>
     </header>
-    
     {% endblock %}
 
     {% block 'body' %}
@@ -80,12 +165,11 @@
                     <p>AutoNation - Best Place To Buy & Sell Cars</p>
                 </div>
             </div>
-            <div class="footer-bottom text-center">
+            <div class="footer-bottom">
                 <p>© Copyright {% now 'Y' %} <a href="#" class="footer-link">AutoNation</a></p>
             </div>
         </div>
     </footer>
-    
     {% endblock %}
 
 </body>

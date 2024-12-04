@@ -3,128 +3,128 @@
 {% load widget_tweaks %}
 
 {% block 'body' %}
-<div style="max-width: 960px; margin: 40px auto; padding: 32px; background-color: #ffffff; border-radius: 12px; box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);">
-    <div style="padding: 24px; border-radius: 12px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);">
+<div style="max-width: 50%; margin: 40px auto; padding: 40px; background: linear-gradient(to bottom, #2C3E50, #1ABC9C); border-radius: 12px; box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.15);">
+    <div style="background-color: #ecf0f1; border-radius: 12px; padding: 32px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);">
 
         <!-- Title Section -->
-        <div style="text-align: center; margin-bottom: 32px;">
-            <h2 style="font-size: 28px; font-weight: 600; color: #333; font-family: 'Helvetica Neue', sans-serif;">Create Car Listing</h2>
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 34px; font-weight: 700; color: #000000; font-family: 'Roboto', sans-serif;">Create Car Listing</h2>
         </div>
 
         <!-- Form Section -->
         <form action="" method="post" enctype="multipart/form-data" style="font-family: 'Arial', sans-serif;">
+
             {% csrf_token %}
-            
+
             <!-- Flexbox Layout: Left Section (Car and Additional Details) & Right Section (Location Details) -->
             <div style="display: flex; justify-content: space-between; gap: 20px;">
 
-                <!-- Left Side Section (Car and Additional Details) -->
-                <div style="flex: 0 0 48%;">
+                <!-- Left Side Section (Car Details) -->
+                <div style="flex: 0 0 50%;">
 
                     <!-- Car Details Section -->
-                    <div style="margin-bottom: 32px; background-color: #fafafa; padding: 24px; border-radius: 8px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);">
-                        <h5 style="font-size: 18px; font-weight: 600; color: #555; margin-bottom: 16px;">Car Details</h5>
-                        
+                    <div style="background-color: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+                        <h5 style="font-size: 22px; font-weight: 600; color: #2C6B9F; margin-bottom: 16px;">Car Details</h5>
+
                         <!-- Brand -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="brand" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">Brand</label>
+                        <div style="margin-bottom: 20px;">
+                            <label for="brand" style="font-weight: 600; color: #333333; font-size: 16px;">Brand</label>
                             {{ listing_form.brand|add_class:"form-control" }}
                         </div>
 
                         <!-- Model -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="model" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">Model</label>
+                        <div style="margin-bottom: 20px;">
+                            <label for="model" style="font-weight: 600; color: #333333; font-size: 16px;">Model</label>
                             {{ listing_form.model|add_class:"form-control" }}
                         </div>
 
                         <!-- VIN -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="vin" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">VIN</label>
+                        <div style="margin-bottom: 20px;">
+                            <label for="vin" style="font-weight: 600; color: #333333; font-size: 16px;">VIN</label>
                             {{ listing_form.vin|add_class:"form-control" }}
                         </div>
 
                         <!-- Mileage -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="mileage" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">Mileage</label>
+                        <div style="margin-bottom: 20px;">
+                            <label for="mileage" style="font-weight: 600; color: #333333; font-size: 16px;">Mileage</label>
                             {{ listing_form.mileage|add_class:"form-control" }}
                         </div>
                     </div>
-
-                    <!-- Additional Details Section -->
-                    <div style="margin-bottom: 32px; background-color: #fafafa; padding: 24px; border-radius: 8px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05); ">
-                        <h5 style="font-size: 18px; font-weight: 600; color: #555; margin-bottom: 16px;">Additional Details</h5>
-
-                        <!-- Color -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="color" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">Color</label>
-                            {{ listing_form.color|add_class:"form-control" }}
-                        </div>
-
-                        <!-- Description -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="description" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">Description</label>
-                            {{ listing_form.description|add_class:"form-control" }}
-                        </div>
-
-                        <!-- Engine -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="engine" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">Engine</label>
-                            {{ listing_form.engine|add_class:"form-control" }}
-                        </div>
-
-                        <!-- Transmission -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="transmission" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">Transmission</label>
-                            {{ listing_form.transmission|add_class:"form-control" }}
-                        </div>
-
-                        <!-- Image -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="image" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">Car Image</label>
-                            {{ listing_form.image|add_class:"form-control" }}
-                        </div>
-                    </div>
-
                 </div>
 
                 <!-- Right Side Section (Location Details) -->
-                <div style="flex: 0 0 48%;">
+                <div style="flex: 0 0 50%;">
 
                     <!-- Location Details Section -->
-                    <div style="margin-bottom: 32px; background-color: #fafafa; padding: 24px; border-radius: 8px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05); ">
-                        <h5 style="font-size: 18px; font-weight: 600; color: #555; margin-bottom: 16px;">Location Details</h5>
+                    <div style="background-color: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+                        <h5 style="font-size: 22px; font-weight: 600; color: #2C6B9F; margin-bottom: 16px;">Location Details</h5>
 
                         <!-- Address 1 -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="address_1" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">Address 1</label>
+                        <div style="margin-bottom: 20px;">
+                            <label for="address_1" style="font-weight: 600; color: #333333; font-size: 16px;">Address 1</label>
                             {{ location_form.address_1|add_class:"form-control" }}
                         </div>
 
                         <!-- Address 2 -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="address_2" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">Address 2</label>
+                        <div style="margin-bottom: 20px;">
+                            <label for="address_2" style="font-weight: 600; color: #333333; font-size: 16px;">Address 2</label>
                             {{ location_form.address_2|add_class:"form-control" }}
                         </div>
 
                         <!-- City -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="city" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">City</label>
+                        <div style="margin-bottom: 20px;">
+                            <label for="city" style="font-weight: 600; color: #333333; font-size: 16px;">City</label>
                             {{ location_form.city|add_class:"form-control" }}
                         </div>
 
                         <!-- State -->
-                        <div style="margin-bottom: 16px;">
-                            <label for="state" style="display: inline-block; font-weight: 600; color: #333; margin-bottom: 8px; font-size: 16px; width: 100px;">State</label>
+                        <div style="margin-bottom: 20px;">
+                            <label for="state" style="font-weight: 600; color: #333333; font-size: 16px;">State</label>
                             {{ location_form.state|add_class:"form-control" }}
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Additional Details Section (Centered Below Car & Location Details) -->
+            <div style="background-color: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+                <h5 style="font-size: 22px; font-weight: 600; color: #2C6B9F; margin-bottom: 16px; text-align: center;">Additional Details</h5>
+
+                <!-- Color -->
+                <div style="margin-bottom: 20px;">
+                    <label for="color" style="font-weight: 600; color: #333333; font-size: 16px;">Color</label>
+                    {{ listing_form.color|add_class:"form-control" }}
+                </div>
+
+                <!-- Description -->
+                <div style="margin-bottom: 20px;">
+                    <label for="description" style="font-weight: 600; color: #333333; font-size: 16px;">Description</label>
+                    {{ listing_form.description|add_class:"form-control" }}
+                </div>
+
+                <!-- Engine -->
+                <div style="margin-bottom: 20px;">
+                    <label for="engine" style="font-weight: 600; color: #333333; font-size: 16px;">Engine</label>
+                    {{ listing_form.engine|add_class:"form-control" }}
+                </div>
+
+                <!-- Transmission -->
+                <div style="margin-bottom: 20px;">
+                    <label for="transmission" style="font-weight: 600; color: #333333; font-size: 16px;">Transmission</label>
+                    {{ listing_form.transmission|add_class:"form-control" }}
+                </div>
+
+                <!-- Image -->
+                <div style="margin-bottom: 20px;">
+                    <label for="image" style="font-weight: 600; color: #333333; font-size: 16px;">Car Image</label>
+                    {{ listing_form.image|add_class:"form-control" }}
+                </div>
+            </div>
+
             <!-- Submit Section -->
             <div style="text-align: center;">
-                <button type="submit" style="font-size: 18px; padding: 12px 32px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">
-                    Save
+                <button type="submit" style="font-size: 18px; padding: 12px 32px; background-color: #2C6B9F; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; width: 100%; max-width: 220px; display: block; margin: 0 auto;">
+                    Save Listing
                 </button>
             </div>
         </form>
