@@ -30,5 +30,5 @@ Explore the AutoNation platform with the following screenshots showcasing its in
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap
 - **Database**: SQLite
 - **Authentication**: Django’s built-in authentication system
-
+  
 
