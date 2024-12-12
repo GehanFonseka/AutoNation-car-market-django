@@ -30,11 +30,5 @@ Explore the AutoNation platform with the following screenshots showcasing its in
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap
 - **Database**: SQLite
 - **Authentication**: Django’s built-in authentication system
+  
 
-## Setup & Installation
-
-To get started with the AutoNation platform, follow the steps below to set up the project on your local machine:
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/GehanFonseka/AutoNation-car-market-django.git
