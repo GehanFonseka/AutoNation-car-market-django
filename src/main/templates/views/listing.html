@@ -87,14 +87,24 @@
             </div>
             <div class="card-body" style="background-color: #fff; padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; border-radius: 0 0 20px 20px;">
                 <div style="display: flex; flex-direction: column; gap: 20px;">
-                    <button class="w-100 btn btn-lg btn-outline-primary" style="padding: 6.3px; border: 2px solid #007bff; color: #007bff; border-radius: 8px; text-align: center;">
+                    <button 
+                        class="w-100 btn btn-lg btn-outline-primary" 
+                        style="padding: 6.3px; border: 2px solid #007bff; color: #007bff; border-radius: 8px; text-align: center; background-color: #fff;" 
+                        onmouseover="this.style.backgroundColor='#007bff'; this.style.color='#fff';" 
+                        onmouseout="this.style.backgroundColor='#fff'; this.style.color='#007bff';">
                         {{ listing.seller.phone_number }}
                     </button>
-                    <button id="sendEmail" class="w-100 btn btn-lg btn-outline-primary" style="padding: 6.3px; border: 2px solid #007bff; color: #007bff; border-radius: 8px; text-align: center;">
+                    <button 
+                        id="sendEmail" 
+                        class="w-100 btn btn-lg btn-outline-primary" 
+                        style="padding: 6.3px; border: 2px solid #007bff; color: #007bff; border-radius: 8px; text-align: center; background-color: #fff;" 
+                        onmouseover="this.style.backgroundColor='#007bff'; this.style.color='#fff';" 
+                        onmouseout="this.style.backgroundColor='#fff'; this.style.color='#007bff';">
                         Send Email
                     </button>
                 </div>
             </div>
+            
         </div>
     </div>
 
@@ -114,4 +124,20 @@
     </section>
     
 </main>
+<script>
+    $("#sendEmail").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "{% url 'inquire_listing' id=listing.id %}",
+            data: { 'csrfmiddlewaretoken': '{{ csrf_token }}' },
+            dataType: "json",
+            success: function (r) {
+                alert("Email sent successfully!")
+            },
+            error: function (rs, e) {
+                alert(rs.info)
+            }
+        })
+    });
+</script>
 {% endblock %}
