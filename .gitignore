@@ -6,17 +6,11 @@
 # Icon must end with two \r
 Icon
 
-# Virtual Environment
+#Virtual Env
 venv/
 
-# Media Files (Uploaded files)
+#Media Files
 **/media/
-
-# Static Files (This is needed if you’re using local storage for static files, else for S3 you may not need this)
-
-
-# VSCode settings
-.vscode/
 
 # Thumbnails
 ._*
@@ -31,6 +25,7 @@ venv/
 Network Trash Folder
 Temporary Items
 .apdisk
+
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -58,8 +53,8 @@ var/
 *.egg
 
 # PyInstaller
-# Usually these files are written by a python script from a template
-# before PyInstaller builds the exe, so as to inject date/other infos into it.
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
@@ -85,6 +80,7 @@ docs/_build/
 # PyBuilder
 target/
 
+
 ### Django ###
 *.log
 *.pot
@@ -92,6 +88,5 @@ target/
 __pycache__/
 local_settings.py
 
-# Environment variables and local database
 .env
 db.sqlite3
