@@ -12,11 +12,11 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 
-# Function to handle file upload
+
+
 def upload_to_fileio(file):
     response = requests.post('https://file.io', files={'file': file})
-    return response.json()  # You can save the response URL for future use
-
+    return response.json()  # Save the response URL for later access
 
 def login_view(request):
     if request.method == 'POST':
@@ -66,26 +66,39 @@ class RegisterView(View):
 
 @method_decorator(login_required, name='dispatch')
 class ProfileView(View):
- 
+
     def get(self, request):
-        user_listings = Listing.objects.filter(seller = request.user.profile)
-        user_liked_listings = LikedListing.objects.filter(profile = request.user.profile).all()
+        user_listings = Listing.objects.filter(seller=request.user.profile)
+        user_liked_listings = LikedListing.objects.filter(
+            profile=request.user.profile).all()
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
         location_form = LocationForm(instance=request.user.profile.location)
-        return render(request, 'views/profile.html', {'user_form': user_form, 'profile_form': profile_form, 'location_form': location_form, 'user_listings': user_listings,'user_liked_listings': user_liked_listings,})
-    
+        return render(request, 'views/profile.html', {'user_form': user_form,
+                                                      'profile_form': profile_form,
+                                                      'location_form': location_form,
+                                                      'user_listings': user_listings,
+                                                      'user_liked_listings': user_liked_listings, })
+
     def post(self, request):
+        user_listings = Listing.objects.filter(seller=request.user.profile)
+        user_liked_listings = LikedListing.objects.filter(
+            profile=request.user.profile).all()
         user_form = UserForm(request.POST, instance=request.user)
-        user_liked_listings = LikedListing.objects.filter(profile = request.user.profile).all()
-        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-        location_form = LocationForm(request.POST, instance=request.user.profile.location)
+        profile_form = ProfileForm(
+            request.POST, request.FILES, instance=request.user.profile)
+        location_form = LocationForm(
+            request.POST, instance=request.user.profile.location)
         if user_form.is_valid() and profile_form.is_valid() and location_form.is_valid():
             user_form.save()
             profile_form.save()
             location_form.save()
             messages.success(request, 'Profile Updated Successfully!')
+            return redirect('profile')
         else:
             messages.error(request, 'Error Updating Profile!')
-        return render(request, 'views/profile.html', {'user_form': user_form, 'profile_form': profile_form, 'location_form': location_form, 'user_liked_listings': user_liked_listings,})
-        
+        return render(request, 'views/profile.html', {'user_form': user_form,
+                                                      'profile_form': profile_form,
+                                                      'location_form': location_form,
+                                                      'user_listings': user_listings,
+                                                      'user_liked_listings': user_liked_listings, })
