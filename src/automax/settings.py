@@ -75,9 +75,7 @@ ROOT_URLCONF = 'automax.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-             BASE_DIR / 'templates', 
-            ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,7 +87,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'automax.wsgi.application'
 
 
