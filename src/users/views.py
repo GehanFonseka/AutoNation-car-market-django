@@ -8,9 +8,6 @@ from django.views import View
 from .forms import UserForm, ProfileForm, LocationForm
 from main.models import Listing, LikedListing
 import requests
-from django.http import JsonResponse
-from django.shortcuts import render
-from django.core.files.storage import FileSystemStorage
 
 
 
