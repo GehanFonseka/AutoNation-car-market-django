@@ -1,1 +1,1 @@
-web: gunicorn automax.wsgi
+web: cd ./src && gunicorn automax.wsgi 
