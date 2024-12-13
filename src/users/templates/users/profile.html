@@ -1,0 +1,133 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block 'body' %}
+<div class="container-fluid text-center py-5" style="background-color: #f4f4f9;">
+    <div class="container px-4 py-5" id="hanging-icons">
+        <div class="row g-4">
+            <div class="col d-flex align-items-start">
+                <div>
+                    
+                    <h2 class="mb-3 border-bottom" style="color: #001645; font-size: 2rem; font-weight: bold; text-transform: uppercase;">Profile</h2>
+                </div>
+            </div>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data" style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.05); padding: 2rem; border-radius: 10px; background-color: #fff;">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- User Information Section -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_username" class="form-label" style="font-weight: 600; display: block; color: #444;">Username</label>
+                        {{ user_form.username }}
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_first_name" class="form-label" style="font-weight: 600; display: block; color: #444;">First Name</label>
+                        {{ user_form.first_name }}
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_last_name" class="form-label" style="font-weight: 600; display: block; color: #444;">Last Name</label>
+                        {{ user_form.last_name }}
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_email" class="form-label" style="font-weight: 600; display: block; color: #444;">Email</label>
+                        {{ user_form.email }}
+                    </div>
+                    
+                    <!-- Profile Information Section -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_photo" class="form-label" style="font-weight: 600; display: block; color: #444;">Profile Photo</label>
+                        {{ profile_form.photo }}
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_bio" class="form-label" style="font-weight: 600; display: block; color: #444;">Bio</label>
+                        {{ profile_form.bio }}
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_phone_number" class="form-label" style="font-weight: 600; display: block; color: #444;">Phone Number</label>
+                        {{ profile_form.phone_number }}
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <!-- Location Information Section -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_address_1" class="form-label" style="font-weight: 600; display: block; color: #444;">Address Line 1</label>
+                        {{ location_form.address_1 }}
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_address_2" class="form-label" style="font-weight: 600; display: block; color: #444;">Address Line 2</label>
+                        {{ location_form.address_2 }}
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_city" class="form-label" style="font-weight: 600; display: block; color: #444;">City</label>
+                        {{ location_form.city }}
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="id_state" class="form-label" style="font-weight: 600; display: block; color: #444;">State</label>
+                        {{ location_form.state }}
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" value="Submit" style="background-color: #0172B2; color: white; padding: 1rem 2rem; font-size: 1.25rem; border-radius: 5px; border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 10px 15px rgba(0, 0, 0, 0.1); cursor: pointer; transition: background-color 0.3s ease;">
+                Save
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Listings Section -->
+<div class="container px-4" style="margin-top: 3rem;">
+    <div class="row g-4 py-5">
+        <div class="col d-flex align-items-start">
+            <div>
+                <h2 class="mb-3 border-bottom" style="color: #001645; font-size: 2rem; font-weight: bold; text-transform: uppercase;">Your Listings</h2>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
+        <thead>
+            <tr style="background-color: #f9f9f9;">
+                <th style="color: #333; font-weight: bold;">ID</th>
+                <th style="color: #333; font-weight: bold;">Model</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for listing in user_listings %}
+            <tr>
+                <td>{{ listing.id }}</td>
+                <td>{{ listing.model }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Liked Listings Section -->
+<div class="container px-4" style="margin-top: 3rem;">
+    <div class="row g-4 py-5">
+        <div class="col d-flex align-items-start">
+            <div>
+                <h2 class="mb-3 border-bottom" style="color: #001645; font-size: 2rem; font-weight: bold; text-transform: uppercase;">Liked Listings</h2>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); background-color: #fff;">
+        <thead>
+            <tr style="background-color: #f9f9f9;">
+                <th style="color: #333; font-weight: bold;">Model</th>
+                <th style="color: #333; font-weight: bold;">Like Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for liked_listing in user_liked_listings %}
+            <tr>
+                <td>{{ liked_listing.listing.model }}</td>
+                <td>{{ liked_listing.like_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
