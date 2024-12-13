@@ -1,28 +1,61 @@
-/* Base Styles */
-html, body {
-    height: 100%;
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
+/*
+ * Globals
+ */
+
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+    color: #333;
+    text-shadow: none;
+    /* Prevent inheritance from `body` */
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+    height: 106%;
+    overflow: 1000vh;
+ 
+    
 }
 
 body {
-    background-color: #f5f5f5;
-    margin: 0;
+   
+    align-items: center;
     padding-bottom: 40px;
-    display: flex;
-    flex-direction: column;
+    background-color: #f5f5f5;
+   
+    
 }
 
-.h2, h3 {
+.h2, h2 {
     color: white;
+}
+
+.h3, h3 {
+    color: white;
+}
+
+body.index {
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
 .cover-container {
     max-width: 42em;
-    margin: 0 auto;
+
 }
 
-/* Header Styling */
+
+/*
+ * Header
+ /* Header Styling */
 .header {
     background-color: #343a40;
     color: white;
@@ -53,6 +86,7 @@ body {
     color: #f8f9fa;
 }
 
+/* Right Side Profile and Logout */
 .profile-container .profile-link {
     font-weight: 500;
     margin-right: 20px;
@@ -64,6 +98,7 @@ body {
     color: #007bff;
 }
 
+/* Logout Button */
 .logout-btn {
     font-size: 1rem;
     padding: 8px 16px;
@@ -76,131 +111,23 @@ body {
     transform: scale(1.05);
 }
 
-/* Footer Styling */
-.footer {
-    background-color: #343a40;
-    color: #f8f9fa;
-    padding: 30px 0;
-    font-family: 'Arial', sans-serif;
-    box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.1);
-    animation: fadeInFooter 1s ease-in-out;
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-/* Footer Layout */
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.footer-bottom {
-    text-align: center;
-}
-
-.footer-link {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-/* Form Control Styling */
-form .form-control {
-    padding: 15px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    width: 100%;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-    transition: all 0.3s ease-in-out;
-}
-
-.form-control:focus {
-    border-color: #ff4d4d;
-    box-shadow: 0 0 5px rgba(255, 77, 77, 0.3);
-}
-
-.btn-danger {
-    padding: 12px 0;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 10px;
-    background-color: #ff4d4d;
-    border: none;
-}
-
-.btn-danger:hover {
-    background-color: #ff3333;
-}
-
-.text-muted a, .text-primary a {
-    text-decoration: none;
+/* Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* Responsive Styling */
-
-/* Large screens (Tablets & Desktops) */
-@media (min-width: 1024px) {
-    .header {
-        padding: 20px 0;
-    }
-
-    .footer-content {
-        flex-direction: row;
-    }
-
-    .footer-bottom {
-        text-align: right;
-    }
-
-    .form-signin {
-        width: 60%;
-    }
-}
-
-/* Medium screens (Laptops, Medium tablets) */
-@media (max-width: 1024px) {
-    .header {
-        padding: 15px 0;
-    }
-
-    .footer-content {
-        flex-direction: row;
-    }
-
-    .footer-bottom {
-        text-align: center;
-    }
-
-    .form-signin {
-        width: 70%;
-    }
-}
-
-/* Small screens (Mobile devices) */
 @media (max-width: 768px) {
-    .header {
-        padding: 15px 0;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-bottom p {
-        font-size: 14px;
-    }
-
-    .form-signin {
-        width: 80%;
-        margin: 0 auto;
+    .brand-name {
+        font-size: 20px;
     }
 
     .logo-container {
@@ -212,14 +139,81 @@ form .form-control {
         flex-direction: column;
         align-items: center;
     }
+}
 
-    .btn-danger {
-        padding: 10px 0;
+ */
+
+#myVideo {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    min-width: 155%;
+    min-height: 100%;
+}
+
+.main-content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    
+
+
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 30px 0;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0px -4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInFooter 1s ease-in-out;
+}
+
+/* Footer Content Layout */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
+/* Footer Links */
+.footer-link {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-bottom p {
         font-size: 14px;
     }
 }
 
-/* Extra small screens (Phones) */
+/* Animation */
+@keyframes fadeInFooter {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Mobile First: Footer Padding and Layout Adjustments */
 @media (max-width: 576px) {
     .footer {
         padding: 20px 0;
@@ -233,84 +227,79 @@ form .form-control {
     .company-info {
         margin-top: 10px;
     }
-
-    .form-signin {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .brand-name {
-        font-size: 20px;
-    }
-
-    .profile-container {
-        margin-top: 10px;
-    }
-
-    .logout-btn {
-        font-size: 14px;
-        padding: 6px 12px;
-    }
-
-    .form-control {
-        font-size: 14px;
-    }
 }
 
-/* Mobile-first: Basic Styling */
-@media (max-width: 375px) {
-    .form-signin {
-        width: 90%;
-    }
-
-    .header {
-        padding: 12px 0;
-    }
-
-    .footer {
-        padding: 15px 0;
-    }
-
-    .logo-container .logo {
-        width: 80%;
-    }
-
-    .profile-container .profile-link {
-        font-size: 0.9rem;
-    }
-
-    .brand-name {
-        font-size: 18px;
-    }
-
-    .footer-link {
-        font-size: 14px;
-    }
+/* Custom styling for the form inputs */
+/* Make the selector more specific by including the parent element */
+form .form-control {
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Mobile-first: Animation Enhancements */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+
+.form-control:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 5px rgba(255, 77, 77, 0.3);
 }
 
-@keyframes fadeInFooter {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+/* Styling for submit button */
+.btn-danger {
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #ff4d4d;
+    border: none;
 }
 
-@keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.btn-danger:hover {
+    background-color: #ff3333;
 }
 
-/* Custom Styling for Alerts */
+/* Styling for links */
+.text-muted a {
+    text-decoration: none;
+}
+
+.text-primary a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+/* General Alert Styling */
 .alert {
     padding: 20px 30px;
     margin: 0px auto;
@@ -321,35 +310,41 @@ form .form-control {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, opacity 0.3s ease;
     animation: slideIn 0.5s ease-out;
 }
 
+/* Success Message */
 .alert-success {
     background-color: #28a745;
     color: white;
     border-left: 5px solid #218838;
 }
 
+/* Error Message */
 .alert-error, .alert-danger {
     background-color: #dc3545;
     color: white;
     border-left: 5px solid #c82333;
 }
 
+/* Info Message */
 .alert-info {
     background-color: #17a2b8;
     color: white;
     border-left: 5px solid #138496;
 }
 
+/* Warning Message */
 .alert-warning {
     background-color: #ffc107;
     color: white;
     border-left: 5px solid #e0a800;
 }
 
+/* Close Button Styling */
 .alert .close-btn {
     background: none;
     border: none;
@@ -361,4 +356,16 @@ form .form-control {
 
 .alert .close-btn:hover {
     color: #f8f9fa;
+}
+
+/* Animation */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Change X to Y for vertical movement */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
