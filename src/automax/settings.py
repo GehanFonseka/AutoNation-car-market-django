@@ -34,11 +34,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(env('DEBUG'))
+DEBUG = True if env('DJANGOAPPMODE') == 'Debug' else False
+print(f'Application running in debug mode: {DEBUG}')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['autonation.herokuapp.com', '127.0.0.1']
 
- 
 # Application definition
 
 INSTALLED_APPS = [
