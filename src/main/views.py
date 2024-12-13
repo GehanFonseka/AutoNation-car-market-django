@@ -8,9 +8,19 @@ from users.forms import LocationForm
 from .models import Listing, LikedListing
 from .forms import ListingForm
 from django.core.mail import send_mail
+import requests
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.core.files.storage import FileSystemStorage
 
 def main_view(request):
     return render(request, "views/main.html", {"name": "AutoMax"})
+
+# Function to handle file upload
+def upload_to_fileio(file):
+    response = requests.post('https://file.io', files={'file': file})
+    return response.json()  # Save the response URL for later access
+
 
 @login_required
 def home_view(request):

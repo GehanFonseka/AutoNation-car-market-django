@@ -7,6 +7,17 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from .forms import UserForm, ProfileForm, LocationForm
 from main.models import Listing, LikedListing
+import requests
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.core.files.storage import FileSystemStorage
+
+# Function to handle file upload
+def upload_to_fileio(file):
+    response = requests.post('https://file.io', files={'file': file})
+    return response.json()  # You can save the response URL for future use
+
+
 def login_view(request):
     if request.method == 'POST':
         login_form = AuthenticationForm(request=request, data=request.POST)
