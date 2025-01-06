@@ -2,10 +2,19 @@
 
 **AUTONATION** is a cutting-edge platform designed to streamline and enhance the experience of car buying, selling, and related services. It provides users with an intuitive interface to explore car listings, connect with sellers, and access various automotive services all in one place. Built with **Python** and **Django**, this project ensures a seamless, user-friendly experience for both buyers and sellers.
 
-## Website
+## Platform Interface Overview
 
-You can explore the live platform here:  
-[**AUTONATION Live Site**](https://autonation.pythonanywhere.com/)
+Explore the AutoNation platform with the following screenshots showcasing its interface:
+<table align="center">
+  <tr>
+    <td><img src="previews/FireShot%20Capture%20003%20-%20AutoNation%20-%20127.0.0.1.png" alt="Screenshot 1" width="600" height="400"/></td>
+    <td><img src="previews/FireShot%20Capture%20004%20-%20AutoNation%20-%20127.0.0.1.png" alt="Screenshot 2" width="600" height="400"/></td>
+  </tr>
+  <tr>
+    <td><img src="previews/home.png" alt="Screenshot 3" width="600" height="400"/></td>
+    <td><img src="previews/listing.png" alt="Screenshot 4" width="600" height="400"/></td>
+  </tr>
+</table>
 
 ## Features
 
